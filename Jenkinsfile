@@ -1,5 +1,5 @@
-pipeline{
-
+pipeline
+{
     agent any
   {
      	maven 'maven'
@@ -7,21 +7,24 @@ pipeline{
  
 
     stages{
-        stage('build'){
+        stage('build')
+       {
             steps{
                 echo 'this is the build job'
                 sh 'mvn compile'
                
             }
         }
-        stage('test'){
+        stage('test')
+      {
             steps{
                 echo 'this is the second job'
                 sh 'mvn clean test'
                 
             }
         }
-        stage('package'){
+        stage('package')
+      {
             steps{
                 echo 'this is the third job'
                 sh 'mvn package -DSkipTests'
@@ -31,10 +34,10 @@ pipeline{
     }
     
     post{
-        always{
+        always
+        {
             echo 'this pipeline has completed...'
         }
         
     }
     
-}
